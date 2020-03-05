@@ -67,6 +67,10 @@
   <filter>
     <filter-name>NameFilter</filter-name>
     <filter-class>com.studentfilter.NameFilter</filter-class>
+    <init-param>
+      <param-name>name</param-name>
+      <param-value>value</param-value>
+    </init-param>
   </filter>
 
   <filter-mapping>
