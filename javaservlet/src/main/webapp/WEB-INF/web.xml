@@ -1,0 +1,78 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+  <display-name>Archetype Created Web Application</display-name>
+
+  <context-param>
+    <param-name>data-properties</param-name>
+    <param-value>C:\Users\Poorvigupta\Documents\javatask\Servlettask\javaservlet\src\main\resources\data-properties.properties</param-value>
+  </context-param>
+  <listener>
+    <listener-class>com.listeners.ContextListener</listener-class>
+  </listener>
+  <servlet>
+    <servlet-name>saveStudent</servlet-name>
+    <servlet-class>com.studentservlet.SaveStudentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>saveStudent</servlet-name>
+    <url-pattern>/student</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>getStudent</servlet-name>
+    <servlet-class>com.studentservlet.GetStudentServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>getStudent</servlet-name>
+    <url-pattern>/getStudent</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>propertyReader</servlet-name>
+    <servlet-class>com.studentservlet.PropertyAccessorServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>propertyReader</servlet-name>
+    <url-pattern>/readProperty</url-pattern>
+  </servlet-mapping>
+
+  <filter>
+    <filter-name>typeFilter</filter-name>
+    <filter-class>com.studentfilter.TypeFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>typeFilter</filter-name>
+    <url-pattern>/getStudent</url-pattern>
+  </filter-mapping>
+
+  <filter>
+    <filter-name>RollNoFilter</filter-name>
+    <filter-class>com.studentfilter.RollNoFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>RollNoFilter</filter-name>
+    <url-pattern>/getStudent</url-pattern>
+  </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>RollNoFilter</filter-name>
+    <url-pattern>/student</url-pattern>
+  </filter-mapping>
+
+  <filter>
+    <filter-name>NameFilter</filter-name>
+    <filter-class>com.studentfilter.NameFilter</filter-class>
+  </filter>
+
+  <filter-mapping>
+    <filter-name>NameFilter</filter-name>
+    <url-pattern>/student</url-pattern>
+  </filter-mapping>
+</web-app>
+
+
