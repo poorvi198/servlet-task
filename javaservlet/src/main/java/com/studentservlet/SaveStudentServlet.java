@@ -28,6 +28,7 @@ public class SaveStudentServlet extends HttpServlet {
         list.add(student);
         ServletContext context =  getServletContext();
         context.setAttribute("studentList",list);
+        context.log("student saved: "+student);
         PrintWriter writer = resp.getWriter();
         Iterator iterator = list.iterator();
 

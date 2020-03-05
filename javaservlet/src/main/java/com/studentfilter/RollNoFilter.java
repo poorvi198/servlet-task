@@ -8,9 +8,11 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RollNoFilter implements Filter {
+    private FilterConfig filterConfig;
+
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-
+        this.filterConfig=filterConfig;
     }
 
     @Override
@@ -24,6 +26,7 @@ public class RollNoFilter implements Filter {
         Matcher matcher = pattern.matcher(rollno);
         if(matcher.matches())
         {
+            filterConfig.getServletContext().log("Valid roll no.");
             filterChain.doFilter(servletRequest,servletResponse);
             //post preocessing
 
@@ -31,6 +34,7 @@ public class RollNoFilter implements Filter {
         else
         {
             PrintWriter write = servletResponse.getWriter();
+            filterConfig.getServletContext().log("Valid roll no.");
             write.println("Invalid rollno");
         }
     }

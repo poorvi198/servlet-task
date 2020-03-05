@@ -34,9 +34,11 @@ public class GetStudentServlet extends HttpServlet {
             {
                 req.setAttribute("Student",student);
                 isStudentFind = true;
+                getServletContext().log("Student found: "+student);
                 break;
             }
         }
+
         if(!isStudentFind)
         {
             writer.println("<html>");
@@ -44,6 +46,7 @@ public class GetStudentServlet extends HttpServlet {
             writer.println("<p>No student found</p>");
             writer.println("</body>");
             writer.println("</html>");
+            getServletContext().log("Student not found: ");
         }
 
     }

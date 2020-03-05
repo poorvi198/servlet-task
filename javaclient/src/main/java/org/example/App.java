@@ -45,6 +45,7 @@ public class App
             }
             System.out.println(line);
         }
+        urlConnection.disconnect();
     }
 
     private static void getStudent() throws IOException {
@@ -71,6 +72,7 @@ public class App
         else {
             System.out.println("fail to get data");
         }
+        urlConnection.disconnect();
     }
 
     private static String addParameters(HashMap<String,String> parameters) throws UnsupportedEncodingException {

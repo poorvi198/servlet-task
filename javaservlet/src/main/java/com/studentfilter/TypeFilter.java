@@ -12,9 +12,10 @@ import java.io.ObjectInputStream;
 import java.io.Writer;
 
 public class TypeFilter implements Filter {
+    private FilterConfig filterConfig;
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
-
+        this.filterConfig=filterConfig;
     }
 
     @Override
@@ -28,12 +29,14 @@ public class TypeFilter implements Filter {
         if(httpServletRequest.getHeader("Accept").equals("application/json")){
             httpServletResponse.setContentType("application/json");
             String studentJson = new JSONConvertor().convert(student);
+            filterConfig.getServletContext().log(studentJson);
            writer.write(studentJson);
         }
         else
         {
             httpServletResponse.setContentType("application/xml");
             String studentXml = new XMLConvertor().convert(student);
+            filterConfig.getServletContext().log(studentXml);
             writer.write(studentXml);
         }
     }
